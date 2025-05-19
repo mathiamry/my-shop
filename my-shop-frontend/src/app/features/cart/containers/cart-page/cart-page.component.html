@@ -1,0 +1,6 @@
+<app-cart-list *ngIf="items$ | async; let value"
+  [items]="value"
+  (remove)="onRemove($event)"
+  (increment)="onIncrement($event)"
+  (decrement)="onDecrement($event)">
+</app-cart-list>

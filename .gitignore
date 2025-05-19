@@ -1,0 +1,14 @@
+# backend (Maven/IDE)
+/my-shop-backend/target/
+/my-shop-backend/.idea/
+/my-shop-backend/*.iml
+
+# frontend (npm/IDE)
+/my-shop-frontend/node_modules/
+/my-shop-frontend/dist/
+/my-shop-frontend/.idea/
+/my-shop-frontend/*.iml
+
+# fichiers OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,30 @@
+<!-- product-list.container.html -->
+<div class="mb-4 flex items-center space-x-2">
+    <input
+      type="text"
+      placeholder="Rechercher un produit…"
+      (input)="onSearch($any($event.target).value)"
+      class="border rounded px-2 py-1 flex-grow"
+    />
+  </div>
+  
+  <app-product-list
+    [products]="paginated()"
+    (addToCart)="onAdd($event)"
+    (increment)="onIncrement($event)"
+    (decrement)="onDecrement($event)"
+    >
+  </app-product-list>
+  
+  <!-- Pagination simple -->
+  <div class="mt-6 flex justify-center space-x-2">
+    <button
+      *ngFor="let p of [].constructor(totalPages()); let i = index"
+      (click)="onPageChange(i)"
+      [class.font-bold]="page() === i"
+      class="px-3 py-1 border rounded hover:bg-gray-200"
+    >
+      {{ i + 1 }}
+    </button>
+  </div>
+  

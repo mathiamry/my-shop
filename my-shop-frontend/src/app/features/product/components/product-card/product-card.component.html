@@ -1,0 +1,42 @@
+<!-- src/app/features/products/components/product-card/product-card.component.html -->
+<article class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex flex-col">
+    <div class="relative">
+      <!-- Image du produit -->
+      <img
+        [src]="imageUrl"
+        [alt]="product.name"
+        class="w-full h-40 object-cover mb-4 rounded"
+      />
+  
+      <!-- Controls de quantité en badge -->
+      <div *ngIf="cartQuantity > 0" class="absolute top-2 right-2 flex items-center space-x-1">
+        <button (click)="onDecrement()" class="bg-white rounded-full p-1 shadow hover:bg-gray-100">−</button>
+        <span class="inline-flex items-center justify-center px-2 py-1 rounded-full bg-red-600 text-white text-xs font-semibold">
+          {{ cartQuantity }}
+        </span>
+        <button (click)="onIncrement()" class="bg-white rounded-full p-1 shadow hover:bg-gray-100">+</button>
+      </div>
+    </div>
+  
+    <!-- Détails produit -->
+    <h3 class="text-lg font-semibold mb-1">{{ product.name }}</h3>
+    <p class="text-sm text-gray-500 mb-1">Code: {{ product.code }}</p>
+    <p class="text-sm text-gray-500 mb-2">Catégorie: {{ product.category }}</p>
+    <p class="text-gray-700 mb-4 flex-grow">{{ product.description }}</p>
+  
+    <!-- Prix et stock -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="font-semibold text-lg">${{ product.price }}</span>
+      <span class="text-sm">Stock: {{ product.inventoryStatus }}</span>
+    </div>
+  
+    <!-- Boutons d’action -->
+    <div class="mt-auto flex space-x-2">
+      <button *ngIf="cartQuantity === 0" (click)="onAddToCart()" class="flex-1 bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
+        Ajouter au panier
+      </button>
+      <button *ngIf="cartQuantity > 0" (click)="onAddToCart()" class="flex-1 bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition">
+        Ajouter +
+      </button>
+    </div>
+  </article>

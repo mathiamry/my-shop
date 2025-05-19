@@ -1,0 +1,47 @@
+<!-- layout.component.html -->
+<div class="flex flex-col min-h-screen">
+    <!-- HEADER -->
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-2xl font-bold">MyShop</div>
+  
+        <!-- Navigation -->
+        <nav>
+          <ul class="flex space-x-6">
+            <li><a routerLink="/shop" class="hover:text-indigo-600">Boutique</a></li>
+            <li><a routerLink="/contact" class="hover:text-indigo-600">Contact</a></li>
+            <li class="relative">
+              <a routerLink="/cart" class="hover:text-indigo-600 flex items-center">
+                Panier
+                <ng-container *ngIf="count$ | async as count">
+                  <span *ngIf="count > 0" class="ml-1 inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold bg-red-600 text-white">
+                    {{ count }}
+                  </span>
+                </ng-container>
+              </a>
+            </li>
+          </ul>
+        </nav>
+  
+       
+      </div>
+    </header>
+  
+    <!-- MAIN CONTENT: delegate rendering to routed components -->
+    <main class="flex-grow container mx-auto px-4 py-6">
+      <router-outlet></router-outlet>
+    </main>
+  
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <p>&copy; 2025 MyShop EHMT. All rights reserved.</p>
+        <div class="space-x-4">
+          <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+          <a href="#" class="hover:text-gray-400">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  

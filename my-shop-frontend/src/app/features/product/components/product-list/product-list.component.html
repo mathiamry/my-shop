@@ -1,0 +1,12 @@
+<!-- product-list.component.html -->
+<div class="grid grid-cols-3 gap-6">
+  <app-product-card
+    *ngFor="let p of products; let i = index"
+    [product]="p"
+    [imageUrl]="p.image || 'https://picsum.photos/300/200?random=' + i"
+    (addToCart)="add($event)"
+    (increment)="onIncrement($event)"
+    (decrement)="onDecrement($event)"
+  >
+  </app-product-card>
+</div>

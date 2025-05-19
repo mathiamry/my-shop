@@ -1,0 +1,12 @@
+<!-- cart-list.component.html -->
+<ul class="divide-y">
+    <li *ngFor="let i of items">
+      <app-cart-item
+        [item]="i"
+        (remove)="remove.emit(i)"
+        (increment)="increment.emit(i)"
+        (decrement)="decrement.emit(i)">
+      </app-cart-item>
+    </li>
+  </ul>
+  

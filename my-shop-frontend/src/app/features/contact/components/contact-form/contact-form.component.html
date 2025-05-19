@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label class="block">Email</label>
+      <input formControlName="email" type="email" class="border p-2 w-full"/>
+      <p *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="text-red-600 text-sm">
+        Email requis et doit être valide.
+      </p>
+    </div>
+  
+    <div>
+      <label class="block">Message</label>
+      <textarea formControlName="message" rows="4" class="border p-2 w-full"></textarea>
+      <p *ngIf="form.get('message')?.touched && form.get('message')?.hasError('required')" class="text-red-600 text-sm">
+        Message requis.
+      </p>
+      <p *ngIf="form.get('message')?.touched && form.get('message')?.hasError('maxlength')" class="text-red-600 text-sm">
+        Max 300 caractères.
+      </p>
+    </div>
+  
+    <button  type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">
+      Envoyer
+    </button>
+  </form>

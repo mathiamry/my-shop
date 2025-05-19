@@ -1,0 +1,13 @@
+<!-- cart-item.component.html -->
+<div class="flex items-center space-x-4 p-4">
+    <div class="flex-1">
+      <h4 class="font-semibold">{{ item.product.name }}</h4>
+      <p class="text-sm text-gray-500">${{ item.product.price }} x {{ item.quantity }}</p>
+    </div>
+    <div class="flex items-center space-x-2">
+      <button (click)="decrement.emit(item)">−</button>
+      <span>{{ item.quantity }}</span>
+      <button (click)="increment.emit(item)">＋</button>
+      <button (click)="remove.emit(item)" class="text-red-600">🗑️</button>
+    </div>
+  </div>
